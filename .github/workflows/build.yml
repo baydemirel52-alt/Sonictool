@@ -1,4 +1,6 @@
 
+
+
 name: Android CI - Apex Boost Pro Build
 
 on:
@@ -34,4 +36,3 @@ jobs:
         with:
           name: ApexGameBooster-Debug-APK
           path: app/build/outputs/apk/debug/app-debug.apk
-```
