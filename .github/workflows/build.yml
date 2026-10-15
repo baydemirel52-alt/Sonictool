@@ -1,6 +1,4 @@
-İşte **`build.yml`** dosyasının tam içeriği. Sağ üst köşedeki **Kopyala** butonuna basarak tek tıkla kopyalayabilirsiniz:
 
-```yaml
 name: Android CI - Apex Boost Pro Build
 
 on:
