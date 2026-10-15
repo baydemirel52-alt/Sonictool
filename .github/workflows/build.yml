@@ -1,0 +1,39 @@
+İşte **`build.yml`** dosyasının tam içeriği. Sağ üst köşedeki **Kopyala** butonuna basarak tek tıkla kopyalayabilirsiniz:
+
+```yaml
+name: Android CI - Apex Boost Pro Build
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    name: Build Android APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repoyu Klonla
+        uses: actions/checkout@v4
+
+      - name: Java 17 Ortamını Kur (Android 16/17 Desteği)
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Gradle İzinlerini Düzenle
+        run: chmod +x gradlew
+
+      - name: APK Derleme İşlemini Başlat ( assembleDebug )
+        run: ./gradlew assembleDebug --stacktrace
+
+      - name: Derlenen APK'yı Çıktı Olarak Kaydet (Artifact)
+        uses: actions/upload-artifact@v4
+        with:
+          name: ApexGameBooster-Debug-APK
+          path: app/build/outputs/apk/debug/app-debug.apk
+```
