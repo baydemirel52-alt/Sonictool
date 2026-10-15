@@ -1,6 +1,4 @@
 
-
-
 name: Android CI - Apex Boost Pro Build
 
 on:
@@ -18,20 +16,19 @@ jobs:
       - name: Repoyu Klonla
         uses: actions/checkout@v4
 
-      - name: Java 17 Ortamını Kur (Android 16/17 Desteği)
+      - name: Java 17 Ortamını Kur
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: gradle
 
-      - name: Gradle İzinlerini Düzenle
-        run: chmod +x gradlew
+      - name: Gradle'ı Kur ve Çalıştır
+        uses: gradle/actions/setup-gradle@v3
 
-      - name: APK Derleme İşlemini Başlat ( assembleDebug )
-        run: ./gradlew assembleDebug --stacktrace
+      - name: APK Derleme İşlemini Başlat
+        run: gradle assembleDebug --stacktrace
 
-      - name: Derlenen APK'yı Çıktı Olarak Kaydet (Artifact)
+      - name: Derlenen APK'yı Çıktı Olarak Kaydet
         uses: actions/upload-artifact@v4
         with:
           name: ApexGameBooster-Debug-APK
