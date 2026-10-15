@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?> <manifest xmlns:android="http:// schemas.android.com/apk/res/
+
+android">
+
+Arka Plan İzinleri --> <uses-permission android.permi ssion.SYSTEM ALERT WINDOW /> <uses-permission android.permi ssion. FOREGROUND_SERVICE /> <uses-permission android.permi ssion.FOREGROUND_SERVICE_SPECIAL_U
+
+SE />
+
+<uses-permission android.permi ssion. POST NOTIFICATIONS /> <uses-permission android.permi ssion.KILL_BACKGROUND_PROCESSES /> <uses-permission android.permi ssion.ACCESS_NETWORK_STATE />
+
+  <application
+
+android:allowBackup="true" android:icon="@mipmap/
+
+ic launcher"
+
+android:label="Apex Boost
+
+&amp; GFX Pro"
+
+android:theme="@android:style/ Theme.Material.NoActionBar">
+
+<activity
+
+android:name=".MainActivity"
+
+<intent-filter>
+
+android:exported="true">
+
+<action android:na me="android.intent.action.MAIN" /> <category android:
+
+name="android.intent.category.LAUN
+
+CHER" />
+
+</intent-filter> </activity>
+
+    <service
+
+android:name=".service
+
+.GamingOverlayService"
+
+android:enabled="true"
+
+android:exported="false"
+
+android: foregroundServ
+
+iceType="specialUse" />
+
+</application>
+
+</manifest>
